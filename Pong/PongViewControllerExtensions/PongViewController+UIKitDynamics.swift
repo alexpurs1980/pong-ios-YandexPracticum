@@ -124,6 +124,7 @@ extension PongViewController: UICollisionBehaviorDelegate {
         } else if abs(p.y - view.bounds.height) <= Constants.contactThreshold {
             // NOTE: Если место столкновения близко к нижней границе,
             // значит мяч ударился о нижнюю грань экрана
+            enemyScore += 1
             shouldResetBall = true
             print("Ball has hit user side.")
         }

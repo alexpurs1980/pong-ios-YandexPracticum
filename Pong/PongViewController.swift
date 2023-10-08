@@ -38,6 +38,9 @@ class PongViewController: UIViewController {
 
     /// Это переменная отображения лэйбла со счетом игрока
     @IBOutlet var userScoreLabel: UILabel!
+    
+    /// Это переменная отображения лэйбла со счетом противника
+    @IBOutlet var enemyScoreLabel: UILabel!
 
     // MARK: - Instance Properties
 
@@ -101,6 +104,13 @@ class PongViewController: UIViewController {
             updateUserScoreLabel()
         }
     }
+    /// Эта переменная хранит счет противника
+    var enemyScore: Int = 0 {
+        didSet {
+            /// При каждом обновлении значения переменной - обновляем текст в лэйбле
+            updateEnemyScoreLabel()
+        }
+    }
 
     // MARK: - Instance Methods
 
@@ -124,7 +134,7 @@ class PongViewController: UIViewController {
         Удали два слэша в начале 127-ой строки и запусти проект, чтобы игра заработала!
         */
 
-        //configurePongGame()
+        configurePongGame()
     }
 
     /// Эта функция вызывается, когда экран PongViewController повяился на экране телефона
@@ -167,8 +177,10 @@ class PongViewController: UIViewController {
     /// - указывает что при следующем нажатии мяч должен запуститься
     ///
     private func configurePongGame() {
+        enemyScoreLabel.text = "0"
         // NOTE: Настраиваем лэйбл со счетом игрока
         updateUserScoreLabel()
+        updateEnemyScoreLabel()
 
         // NOTE: Включаем обработку жеста движения пальцем по экрану
         self.enabledPanGestureHandling()
@@ -185,6 +197,36 @@ class PongViewController: UIViewController {
     }
 
     private func updateUserScoreLabel() {
-        userScoreLabel.text = "\(userScore)"
+        //NOTE: Обновляем очки и проверяем счет - если счет достигает 3, то показываем
+        //победу, скрываем надписи через 3 секунды и через 2 секунды завершаем приложение
+        if userScore < 3 {
+            userScoreLabel.text = "\(userScore)"
+        } else {
+            userScoreLabel.text = "User WINS!"
+            enemyScoreLabel.text = "Bye!"
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.userScoreLabel.isHidden = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    UIControl().sendAction(#selector(NSXPCConnection.suspend), to: UIApplication.shared, for: nil)
+                }
+            }
+        }
+    }
+    
+    private func updateEnemyScoreLabel() {
+        //NOTE: Обновляем очки и проверяем счет - если счет достигает 3, то показываем
+        //победу, скрываем надписи через 3 секунды и через 2 секунды завершаем приложение
+        if enemyScore < 3 {
+            enemyScoreLabel.text = "\(enemyScore)"
+        } else {
+            enemyScoreLabel.text = "User LOSE!"
+            userScoreLabel.text = "Bye!"
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.enemyScoreLabel.isHidden = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    UIControl().sendAction(#selector(NSXPCConnection.suspend), to: UIApplication.shared, for: nil)
+                }
+            }
+        }
     }
 }

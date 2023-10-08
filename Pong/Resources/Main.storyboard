@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina5_5" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,14 +17,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWf-Ua-Wfx">
-                                <rect key="frame" x="0.0" y="368" width="414" height="368"/>
+                                <rect key="frame" x="0.0" y="378" width="414" height="358"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="64"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAl-ol-fSb">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="379"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="64"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="unS-db-gNZ">
                                 <rect key="frame" x="155.33333333333334" y="668" width="103.33333333333334" height="24"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.74923686094683672" green="1" blue="0.77888614577923254" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="kdE-9e-OT5"/>
                                 </constraints>
@@ -35,22 +42,22 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zf6-XP-fUO">
-                                <rect key="frame" x="0.0" y="367" width="414" height="2"/>
+                                <rect key="frame" x="0.0" y="377" width="414" height="2"/>
                                 <color key="backgroundColor" white="0.10000000000000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="2VE-yc-xpd"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFA-jq-m1C">
-                                <rect key="frame" x="190" y="351" width="34" height="34"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="190" y="361" width="34" height="34"/>
+                                <color key="backgroundColor" red="1" green="0.76469741664833779" blue="0.35669361030929447" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="QFA-jq-m1C" secondAttribute="height" multiplier="1:1" id="Tws-kF-MPN"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MXA-l5-Wr3">
-                                <rect key="frame" x="155.33333333333334" y="44" width="103.33333333333334" height="24"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="155.33333333333334" y="64" width="103.33333333333334" height="24"/>
+                                <color key="backgroundColor" red="1" green="0.68868096101687826" blue="0.66977955988697646" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="Eed-3f-rZA"/>
                                 </constraints>
@@ -85,6 +92,7 @@
                     <connections>
                         <outlet property="ballView" destination="QFA-jq-m1C" id="q7c-aI-D9E"/>
                         <outlet property="enemyPaddleView" destination="MXA-l5-Wr3" id="odV-q7-r6j"/>
+                        <outlet property="enemyScoreLabel" destination="oAl-ol-fSb" id="ssd-Rd-eEd"/>
                         <outlet property="lineView" destination="Zf6-XP-fUO" id="kGT-ZU-0eH"/>
                         <outlet property="userPaddleView" destination="unS-db-gNZ" id="IFy-ER-tRo"/>
                         <outlet property="userScoreLabel" destination="sWf-Ua-Wfx" id="tMU-4S-2qN"/>
@@ -92,7 +100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="66.666666666666671" y="76.339285714285708"/>
+            <point key="canvasLocation" x="66.666666666666671" y="75.815217391304358"/>
         </scene>
     </scenes>
 </document>
